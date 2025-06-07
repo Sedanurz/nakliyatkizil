@@ -1,15 +1,4 @@
-/**
-* Template Name: Logis
-* Template URL: https://bootstrapmade.com/logis-bootstrap-logistics-website-template/
-* Updated: Aug 07 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 
-/*--------------------------------------------------------------
-# Font & Color Variables
-# Help: https://bootstrapmade.com/color-system/
---------------------------------------------------------------*/
 /* Fonts */
 :root {
   --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -21,8 +10,9 @@
 :root { 
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #212529; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #001973; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #0d42ff; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --heading-color: #222; /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #0d42ff; /* Accent color that represents your brand on the web
+  . It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
@@ -33,7 +23,7 @@
   --nav-hover-color: #ffffff; /* Applied to main navmenu links when they are hovered over or active */
   --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #212529; /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-color: #292521; /* Used for navigation links of the dropdown items in the navigation menu. */
   --nav-dropdown-hover-color: #0d42ff; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
@@ -67,13 +57,13 @@ body {
 }
 
 a {
-  color: var(--accent-color);
+  color:red;
   text-decoration: none;
   transition: 0.3s;
 }
 
 a:hover {
-  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  color: color-mix(in srgb,red, transparent 25%);
   text-decoration: none;
 }
 
@@ -92,13 +82,51 @@ h6 {
 .pulsating-play-btn {
   width: 94px;
   height: 94px;
-  background: radial-gradient(var(--accent-color) 50%, color-mix(in srgb, var(--accent-color), transparent 75%) 52%);
+  background: radial-gradient(var(--accent-color) 50%, color-mix(in srgb,red, transparent 75%) 52%);
   border-radius: 50%;
   display: block;
   position: relative;
   overflow: hidden;
 }
+/* carosel */
+.carousel-overlay {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  text-align: left;
+  color: white;
+  z-index: 10;
+  animation: fadeInUp 1.2s ease-in-out;
+  max-width: 600px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
 
+.carousel-title {
+  font-size: 5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: red;
+}
+
+.carousel-subtitle {
+  font-size: 3rem;
+}
+
+/* Animasyon */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* carosel end */
+
+/* Pulsating Play Button */
 .pulsating-play-btn:before {
   content: "";
   position: absolute;
@@ -111,7 +139,7 @@ h6 {
   animation-timing-function: steps;
   opacity: 1;
   border-radius: 50%;
-  border: 5px solid color-mix(in srgb, var(--accent-color), transparent 30%);
+  border: 5px solid color-mix(in srgb,red, transparent 30%);
   top: -15%;
   left: -15%;
   background: rgba(198, 16, 0, 0);
@@ -150,7 +178,7 @@ h6 {
 }
 
 .pulsating-play-btn:hover:after {
-  border-left: 15px solid var(--accent-color);
+  border-left: 15px solidred;
   transform: scale(20);
 }
 
@@ -203,7 +231,7 @@ h6 {
   width: 24px;
   height: 24px;
   margin: 0 10px -6px 0;
-  border: 3px solid var(--accent-color);
+  border: 3px solidred;
   border-top-color: var(--surface-color);
   animation: php-email-form-loading 1s linear infinite;
 }
@@ -216,6 +244,100 @@ h6 {
   100% {
     transform: rotate(360deg);
   }
+}
+/* === TOP HEADER CUSTOM === */
+
+/* Top Header Font & Icon Styling */
+.top-header {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.top-header i {
+  color: #0d42ff;
+  transition: transform 0.3s ease, color 0.3s ease;
+  font-size: 16px;
+}
+
+.top-header a:hover i {
+  color: #d9232d;
+  transform: scale(1.2);
+}
+
+.top-header .contact-info small {
+  color: #333;
+}
+
+
+.top-header .social-icons a {
+  color: #0d42ff;
+  font-size: 12px;
+  background: #fff;
+  border-radius: 50%;
+  padding: 6px;
+  transition: all 0.3s ease;
+}
+
+.top-header .social-icons a:hover {
+  
+  color: #fff;
+  transform: scale(1.1);
+}
+/* Mobil Uyum */
+@media (max-width: 575.98px) {
+  .top-header .container {
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+  }
+
+  .top-header .contact-info {
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .top-header .contact-info small {
+    font-size: 13px;
+  }
+
+  .top-header .social-icons {
+    justify-content: center;
+    padding-top: 4px;
+  }
+
+  .top-header .social-icons a {
+    font-size: 13px;
+    margin-left: 4px;
+  }
+   .top-header {
+    height: auto;
+    text-align: center;
+  }
+}
+@media (max-width: 576px) {
+  .top-header {
+    height: auto;
+  }
+
+  #header.header {
+    top: 70px; /* Mobilde top header daha uzun olabilir */
+  }
+
+  body.index-page {
+    padding-top: 140px;
+  }
+}
+
+
+/* === BODY PADDING === */
+body.index-page {
+  padding-top: 5px; /* Top-header + navbar yüksekliği kadar */
+}
+
+#header.header {
+  top: 40px; /* Top header yüksekliği kadar */
+  z-index: 1050;
 }
 
 /*--------------------------------------------------------------
@@ -250,7 +372,7 @@ h6 {
 .header .btn-getstarted,
 .header .btn-getstarted:focus {
   color: var(--contrast-color);
-  background: var(--accent-color);
+  background: red;
   font-size: 14px;
   padding: 8px 25px;
   margin: 0 0 0 30px;
@@ -261,7 +383,8 @@ h6 {
 .header .btn-getstarted:hover,
 .header .btn-getstarted:focus:hover {
   color: var(--contrast-color);
-  background: color-mix(in srgb, var(--accent-color), transparent 15%);
+  transform: scale(1.08);
+  background: color-mix(in srgb, red 90%, black 10%);
 }
 
 @media (max-width: 1200px) {
@@ -280,15 +403,12 @@ h6 {
   }
 }
 
-.scrolled .header {
-  padding: 10px 0;
-  box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
-}
+
 
 /* Global Header on Scroll
 ------------------------------*/
 .scrolled .header {
-  --background-color: rgba(14, 29, 52, 0.9);
+  --background-color: rgba(20, 20, 20, 0.92);
 }
 
 /*--------------------------------------------------------------
@@ -378,7 +498,7 @@ h6 {
   .navmenu .dropdown ul a:hover,
   .navmenu .dropdown ul .active:hover,
   .navmenu .dropdown ul li:hover>a {
-    color: var(--nav-dropdown-hover-color);
+    color: red;
   }
 
   .navmenu .dropdown:hover>ul {
@@ -401,7 +521,7 @@ h6 {
   }
 }
 
-/* Navmenu - Mobile */
+/* Navmenu Stilleri - Mobil */
 @media (max-width: 1199px) {
   .mobile-nav-toggle {
     color: var(--nav-color);
@@ -443,7 +563,7 @@ h6 {
     align-items: center;
     justify-content: space-between;
     white-space: nowrap;
-    transition: 0.3s;
+    transition: color 0.3s;
   }
 
   .navmenu a i,
@@ -458,24 +578,24 @@ h6 {
     justify-content: center;
     border-radius: 50%;
     transition: 0.3s;
-    background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+    background-color: color-mix(in srgb, red, transparent 90%);
   }
 
   .navmenu a i:hover,
   .navmenu a:focus i:hover {
-    background-color: var(--accent-color);
+    background-color: red;
     color: var(--contrast-color);
   }
 
   .navmenu a:hover,
   .navmenu .active,
   .navmenu .active:focus {
-    color: var(--nav-dropdown-hover-color);
+    color: red;
   }
 
   .navmenu .active i,
   .navmenu .active:focus i {
-    background-color: var(--accent-color);
+    background-color: red;
     color: var(--contrast-color);
     transform: rotate(180deg);
   }
@@ -483,12 +603,10 @@ h6 {
   .navmenu .dropdown ul {
     position: static;
     display: none;
-    z-index: 99;
     padding: 10px 0;
     margin: 10px 20px;
     background-color: var(--nav-dropdown-background-color);
     border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-    box-shadow: none;
     transition: all 0.5s ease-in-out;
   }
 
@@ -499,10 +617,6 @@ h6 {
   .navmenu .dropdown>.dropdown-active {
     display: block;
     background-color: rgba(33, 37, 41, 0.03);
-  }
-
-  .mobile-nav-active {
-    overflow: hidden;
   }
 
   .mobile-nav-active .mobile-nav-toggle {
@@ -517,7 +631,6 @@ h6 {
 
   .mobile-nav-active .navmenu {
     position: fixed;
-    overflow: hidden;
     inset: 0;
     background: rgba(33, 37, 41, 0.8);
     transition: 0.3s;
@@ -527,13 +640,12 @@ h6 {
     display: block;
   }
 }
-
 /*--------------------------------------------------------------
 # Global Footer
 --------------------------------------------------------------*/
 .footer {
   color: var(--default-color);
-  background-color: var(--background-color);
+  background-color: rgba(0, 0, 0, 0.862);
   font-size: 14px;
   position: relative;
 }
@@ -659,7 +771,7 @@ h6 {
   inset: 0;
   z-index: 9999;
   overflow: hidden;
-  background-color: var(--background-color);
+  background-color:black;
   transition: all 0.6s ease-out;
   width: 100%;
   height: 100vh;
@@ -669,7 +781,7 @@ h6 {
 #preloader:after {
   content: "";
   position: absolute;
-  border: 4px solid var(--accent-color);
+  border: 4px solidred;
   border-radius: 50%;
   animation: animate-preloader 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
 }
@@ -706,7 +818,7 @@ h6 {
   right: 15px;
   bottom: 15px;
   z-index: 99999;
-  background-color: var(--accent-color);
+  background-color:red;
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -720,7 +832,7 @@ h6 {
 }
 
 .scroll-top:hover {
-  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+  background-color: color-mix(in srgb,red, transparent 20%);
   color: var(--contrast-color);
 }
 
@@ -934,13 +1046,13 @@ section,
 
 .hero form .btn-primary {
   color: var(--contrast-color);
-  background-color: var(--accent-color);
+  background-color:red;
   flex-shrink: 0;
   padding: 0 25px;
 }
 
 .hero form .btn-primary:hover {
-  background-color: color-mix(in srgb, var(--accent-color), transparent 15%);
+  background-color: color-mix(in srgb,red, transparent 15%);
 }
 
 .hero .stats-item {
@@ -955,6 +1067,7 @@ section,
   margin-bottom: 15px;
   padding-bottom: 15px;
   position: relative;
+  
 }
 
 .hero .stats-item span:after {
@@ -963,7 +1076,7 @@ section,
   display: block;
   width: 20px;
   height: 3px;
-  background: var(--accent-color);
+  background: red;
   left: 0;
   right: 0;
   bottom: 0;
@@ -992,13 +1105,13 @@ section,
 }
 
 .featured-services .service-item .icon i {
-  color: var(--accent-color);
+  color:red;
   font-size: 40px;
   transition: 0.3s;
 }
 
 .featured-services .service-item:hover .icon i {
-  color: var(--accent-color);
+  color:red;
 }
 
 .featured-services .service-item .title {
@@ -1031,7 +1144,7 @@ section,
 .featured-services .service-item:hover .title,
 .featured-services .service-item:hover .readmore,
 .featured-services .service-item:hover .icon i {
-  color: var(--accent-color);
+  color:red;
 }
 
 /*--------------------------------------------------------------
@@ -1056,7 +1169,7 @@ section,
 .about .content ul i {
   flex-shrink: 0;
   font-size: 48px;
-  color: var(--accent-color);
+  color:red;
   margin-right: 20px;
   line-height: 0;
 }
@@ -1116,7 +1229,7 @@ section,
 }
 
 .services .card a:hover {
-  color: var(--accent-color);
+  color:red;
 }
 
 .services .card p {
@@ -1188,8 +1301,8 @@ section,
 }
 
 .call-to-action .cta-btn:hover {
-  background: var(--accent-color);
-  border: 2px solid var(--accent-color);
+  background:red;
+  border: 2px solidred;
 }
 
 /*--------------------------------------------------------------
@@ -1232,7 +1345,7 @@ section,
 .features .features-item ul i {
   font-size: 20px;
   padding-right: 4px;
-  color: var(--accent-color);
+  color:red;
 }
 
 .features .features-item p:last-child {
@@ -1258,7 +1371,7 @@ section,
 }
 
 .pricing h4 {
-  color: var(--accent-color);
+  color:red;
   font-size: 48px;
   font-weight: 400;
   font-family: var(--heading-font);
@@ -1307,7 +1420,7 @@ section,
 }
 
 .pricing .buy-btn {
-  color: var(--accent-color);
+  color:red;
   display: inline-block;
   padding: 8px 35px 10px 35px;
   border-radius: 50px;
@@ -1316,20 +1429,20 @@ section,
   font-weight: 500;
   font-family: var(--heading-font);
   transition: 0.3s;
-  border: 1px solid var(--accent-color);
+  border: 1px solidred;
 }
 
 .pricing .buy-btn:hover {
-  background: var(--accent-color);
+  background:red;
   color: var(--contrast-color);
 }
 
 .pricing .featured {
-  border-top-color: var(--accent-color);
+  border-top-color:red;
 }
 
 .pricing .featured .buy-btn {
-  background: var(--accent-color);
+  background:red;
   color: var(--contrast-color);
 }
 
@@ -1486,7 +1599,7 @@ section,
   position: relative;
   padding: 20px;
   margin-bottom: 20px;
-  background-color: color-mix(in srgb, var(--default-color), transparent 96%);
+  background-color: color-mix(in srgb, white, transparent 96%);
   overflow: hidden;
   transition: 0.3s;
 }
@@ -1505,12 +1618,12 @@ section,
 }
 
 .faq .faq-container .faq-item h3 span {
-  color: var(--accent-color);
+  color:red;
   padding-right: 5px;
 }
 
 .faq .faq-container .faq-item h3:hover {
-  color: var(--accent-color);
+  color:red;
 }
 
 .faq .faq-container .faq-item .faq-content {
@@ -1533,7 +1646,7 @@ section,
   font-size: 20px;
   line-height: 0;
   transition: 0.3s;
-  color: var(--accent-color);
+  color:red;
 }
 
 .faq .faq-container .faq-item .faq-toggle {
@@ -1547,23 +1660,26 @@ section,
 }
 
 .faq .faq-container .faq-item .faq-toggle:hover {
-  color: var(--accent-color);
+  color: red;
 }
 
 .faq .faq-container .faq-active {
-  background-color: var(--heading-color);
+  background-color: #fff8f3; /* Hafif krem arkaplan */
   transition: 0.3s;
 }
 
 .faq .faq-container .faq-active h3,
 .faq .faq-container .faq-active h3:hover,
-.faq .faq-container .faq-active .faq-toggle,
-.faq .faq-container .faq-active .faq-icon,
-.faq .faq-container .faq-active .faq-content {
-  color: var(--contrast-color);
+.faq .faq-container .faq-active .faq-toggle {
+  color: var(--heading-color); /* Siyah başlık ve toggle */
+}
+
+.faq .faq-container .faq-active .faq-icon {
+  color: red; /* Iconlar kırmızı kalır */
 }
 
 .faq .faq-container .faq-active .faq-content {
+  color: var(--default-color);
   grid-template-rows: 1fr;
   visibility: visible;
   opacity: 1;
@@ -1573,6 +1689,7 @@ section,
 .faq .faq-container .faq-active .faq-toggle {
   transform: rotate(90deg);
 }
+
 
 /*--------------------------------------------------------------
 # Stats Section
@@ -1598,7 +1715,7 @@ section,
   display: block;
   width: 25px;
   height: 3px;
-  background: var(--accent-color);
+  background:red;
   left: 0;
   right: 0;
   bottom: 0;
@@ -1661,7 +1778,7 @@ section,
 }
 
 .team .member .social a:hover {
-  color: var(--accent-color);
+  color:red;
 }
 
 .team .member .social i {
@@ -1692,11 +1809,11 @@ section,
 .service-details .services-list a.active {
   color: var(--heading-color);
   font-weight: 700;
-  border-color: var(--accent-color);
+  border-color:red;
 }
 
 .service-details .services-list a:hover {
-  border-color: var(--accent-color);
+  border-color:red;
 }
 
 .service-details .services-img {
@@ -1732,7 +1849,7 @@ section,
 .service-details ul i {
   font-size: 20px;
   margin-right: 8px;
-  color: var(--accent-color);
+  color:red;
 }
 
 /*--------------------------------------------------------------
@@ -1753,7 +1870,7 @@ section,
 
 .alt-pricing .pricing-item h4 {
   font-size: 48px;
-  color: var(--accent-color);
+  color:red;
   font-weight: 400;
   font-family: var(--heading-font);
   margin-bottom: 25px;
@@ -1803,8 +1920,8 @@ section,
 
 .alt-pricing .buy-btn {
   color: var(--contrast-color);
-  background-color: var(--accent-color);
-  border: 2px solid var(--accent-color);
+  background-color:red;
+  border: 2px solidred;
   display: inline-block;
   padding: 12px 40px;
   border-radius: 4px;
@@ -1816,11 +1933,11 @@ section,
 }
 
 .alt-pricing .buy-btn:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+  background: color-mix(in srgb,red, transparent 20%);
 }
 
 .alt-pricing .featured {
-  background: var(--accent-color);
+  background:red;
 }
 
 .alt-pricing .featured h3,
@@ -1834,13 +1951,13 @@ section,
 }
 
 .alt-pricing .featured .buy-btn {
-  background: var(--accent-color);
+  background:red;
   color: var(--contrast-color);
   border-color: var(--contrast-color);
 }
 
 .alt-pricing .featured .buy-btn:hover {
-  background: color-mix(in srgb, var(--accent-color) 90%, black 15%);
+  background: color-mix(in srgb,red 90%, black 15%);
   color: var(--contrast-color);
 }
 
@@ -1853,7 +1970,7 @@ section,
 
 .contact .info-item i {
   color: var(--contrast-color);
-  background: var(--accent-color);
+  background:red;
   font-size: 20px;
   width: 44px;
   height: 44px;
@@ -1898,7 +2015,7 @@ section,
 .contact .php-email-form input[type=text]:focus,
 .contact .php-email-form input[type=email]:focus,
 .contact .php-email-form textarea:focus {
-  border-color: var(--accent-color);
+  border-color:red;
 }
 
 .contact .php-email-form input[type=text]::placeholder,
@@ -1909,7 +2026,7 @@ section,
 
 .contact .php-email-form button[type=submit] {
   color: var(--contrast-color);
-  background: var(--accent-color);
+  background:red;
   border: 0;
   padding: 10px 30px;
   transition: 0.4s;
@@ -1917,7 +2034,7 @@ section,
 }
 
 .contact .php-email-form button[type=submit]:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+  background: color-mix(in srgb,red, transparent 20%);
 }
 
 /*--------------------------------------------------------------
@@ -1976,7 +2093,7 @@ section,
 .get-a-quote .php-email-form input[type=text]:focus,
 .get-a-quote .php-email-form input[type=email]:focus,
 .get-a-quote .php-email-form textarea:focus {
-  border-color: var(--accent-color);
+  border-color:red;
 }
 
 .get-a-quote .php-email-form input[type=text]::placeholder,
@@ -1987,7 +2104,7 @@ section,
 
 .get-a-quote .php-email-form button[type=submit] {
   color: var(--contrast-color);
-  background: var(--accent-color);
+  background:red;
   border: 0;
   padding: 10px 30px;
   transition: 0.4s;
@@ -1995,7 +2112,7 @@ section,
 }
 
 .get-a-quote .php-email-form button[type=submit]:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+  background: color-mix(in srgb,red, transparent 20%);
 }
 
 /*--------------------------------------------------------------
@@ -2003,4 +2120,132 @@ section,
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+
+/* Whatsapp Icon */
+.whatsapp-wrapper {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.whatsapp-button {
+  background-color: #25D366;
+  color: white;
+  padding: 12px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.whatsapp-button .hover-text {
+  display: none;
+  margin-left: 8px;
+  white-space: nowrap;
+}
+
+.whatsapp-button:hover {
+  background-color: #1ebd5a;
+  border-radius: 30px;
+  width: auto;
+  padding: 12px 20px;
+  color:white;
+}
+
+
+/* Phone Icon */
+.phone-wrapper {
+  width: auto;
+  position: fixed;
+  bottom: 85px;
+  left: 20px;
+  padding: 0;
+  margin: 0;
+  z-index: 1000;
+}
+
+.phone-button {
+  background-color: #25D366;
+  color: white;
+  padding: 12px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: border-radius 0.3s ease, background-color 0.3s ease, width 0.3s ease, padding 0.3s ease;
+}
+
+.phone-button:hover {
+  background-color: #1ebd5a;
+  border-radius: 30px;
+  width: auto;
+  padding: 12px 20px;
+  color: aliceblue;
+}
+
+.phone-text {
+  display: none;
+}
+
+.phone-button:hover .phone-text {
+  display: inline;
+}
+
+@media (max-width: 768px) {
+  .phone-wrapper:nth-child(1) {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .phone-wrapper:nth-child(2) {
+    bottom: 60px; /* Birinci ikonun üstünde: 15px + 44px + 6px */
+    right: 15px;
+  }
+
+  .phone-button {
+    width: 44px;
+    height: 44px;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .phone-button:hover {
+    width: auto;
+    padding: 10px 16px;
+    border-radius: 8px;
+  }
+
+  .whatsapp-wrapper {
+    bottom: 30px; /* İkinci phone-wrapper'ın altından: 60px + 44px + 6px boşluk */
+    left: 20px; /* Sol otomatik ayar */
+  }
+
+  .whatsapp-button {
+    width: 44px;
+    height: 44px;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .whatsapp-button:hover {
+    width: auto;
+    padding: 10px 16px;
+    border-radius: 8px;
+  }
 }
