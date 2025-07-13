@@ -249,17 +249,9 @@
   <div id="preloader"></div>
 <script>
   const form = document.getElementById('quoteForm');
-  const loadingDiv = document.querySelector('.loading');
-  const errorDiv = document.querySelector('.error-message');
-  const successDiv = document.querySelector('.sent-message');
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-
-    // Mesaj kutularını temizle
-    loadingDiv.classList.remove('d-none');
-    errorDiv.classList.add('d-none');
-    successDiv.classList.add('d-none');
 
     const data = {
       departure: form.departure.value,
@@ -273,29 +265,21 @@
       message: form.message.value,
     };
 
+    // Form gönderilince hemen temizle
+    form.reset();
+
     try {
-      const response = await fetch('http://localhost:3000/server.js', {
+      const response = await fetch('http://localhost:3000/send-mail', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
 
-      const result = await response.text();
-
-      if (response.ok) {
-        successDiv.textContent = result || 'Teklif isteğiniz başarıyla gönderildi. Teşekkürler!';
-        successDiv.classList.remove('d-none');
-        form.reset();
-      } else {
-        errorDiv.textContent = 'Sunucu hatası: ' + result;
-        errorDiv.classList.remove('d-none');
-      }
+      const text = await response.text();
+      alert(text);
 
     } catch (error) {
-      errorDiv.textContent = 'Bir hata oluştu: ' + error.message;
-      errorDiv.classList.remove('d-none');
-    } finally {
-      loadingDiv.classList.add('d-none');
+      alert('Bir hata oluştu: ' + error.message);
     }
   });
 </script>

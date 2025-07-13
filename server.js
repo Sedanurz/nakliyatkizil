@@ -1,23 +1,30 @@
-import nodemailer from 'nodemailer';
+const express = require('express');
+const nodemailer = require('nodemailer');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
-export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Sadece POST istekleri desteklenir' });
-  }
+const app = express();
+const PORT = 3000;
 
+app.use(cors()); // Frontend’den gelecek istekler için
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.post('/send-mail', (req, res) => {
   const { departure, delivery, weight, dimensions, elevator, name, email, phone, message } = req.body;
 
+  // Mail transporter ayarları (örnek Gmail)
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: process.env.EMAIL_USER,  // .env dosyasında tanımlanmalı
-      pass: process.env.EMAIL_PASS   // Uygulama şifresi
+      user: ' nakliyatkizil@gmail.com',          // Gmail adresin
+      pass: 'jxhl yugr meou zbyb'                // Gmail uygulama şifren
     }
   });
 
   const mailOptions = {
     from: email,
-    to: process.env.EMAIL_USER,
+    to: ' nakliyatkizil@gmail.com',               // Mailin gideceği adres
     subject: `Yeni Teklif Talebi - ${name}`,
     html: `
       <h3>Yeni Teklif Talebi</h3>
@@ -35,11 +42,15 @@ export default async function handler(req, res) {
     `
   };
 
-  try {
-    await transporter.sendMail(mailOptions);
-    res.status(200).json({ success: true, message: 'Mesaj başarıyla gönderildi!' });
-  } catch (error) {
-    console.error('Mail gönderme hatası:', error);
-    res.status(500).json({ success: false, error: 'Mail gönderilemedi.' });
-  }
-}
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.error('Mail gönderme hatası:', error);
+      return res.status(500).send('Mail gönderilemedi.');
+    }
+    res.send('Mesaj başarıyla gönderildi!');
+  });
+});
+
+app.listen(PORT, () => {
+  console.log(`Sunucu ${PORT} portunda çalışıyor`);
+});
