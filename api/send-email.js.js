@@ -1,13 +1,20 @@
 import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
-  // CORS ayarları
-  res.setHeader('Access-Control-Allow-Origin', 'https://nakliyatkizil.com'); // İzin verilen domain
+  // ✅ CORS AYARI: www'li ve www'siz alan adını destekle
+  const allowedOrigins = ['https://www.nakliyatkizil.com', 'https://nakliyatkizil.com'];
+  const origin = req.headers.origin;
+
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
+  // Preflight isteği (CORS OPTIONS kontrolü)
   if (req.method === 'OPTIONS') {
-    return res.status(200).end(); // Preflight request cevabı
+    return res.status(200).end();
   }
 
   if (req.method !== 'POST') {
@@ -40,7 +47,7 @@ export default async function handler(req, res) {
 
   const mailOptions = {
     from: process.env.EMAIL,
-    to: 'nakliyatkizil@gmail.com', // Alıcı e-posta adresi
+    to: 'nakliyatkizil@gmail.com',
     subject: `Yeni Nakliyat Talebi - ${name}`,
     html: `
       <h2 style="color:#e53935;">Yeni Nakliyat Talebi</h2>
