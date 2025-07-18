@@ -1,57 +1,5 @@
 # 🚚 nakliyatkizil.com
 
-**nakliyatkizil.com**, evden eve nakliyat, şehir içi taşımacılık ve koli taşıma hizmetleri için geliştirilen modern ve kullanıcı dostu bir web sitesidir. Firma tanıtımı, hizmet detayları, iletişim formu ve harita entegrasyonu gibi bölümleri içerir. Mobil uyumludur ve sade bir tasarıma sahiptir.
-
-## 🌐 Site Hakkında
-
-Bu proje, Kızıl Nakliyat firmasının dijital yüzünü temsil etmektedir. Kullanıcıların hizmetleri kolayca inceleyebileceği, firmayla iletişime geçebileceği ve detaylı bilgi alabileceği şekilde tasarlanmıştır.
-
----
-
-## 🚀 Özellikler
-
-- Mobil ve tablet uyumlu responsive tasarım
-- Şehir içi ve şehirler arası taşımacılık hizmetleri
-- Kolay anlaşılır arayüz
-- İletişim formu (isteğe bağlı olarak e-posta ile gönderim)
-- Google Maps ile konum gösterimi
-- SEO dostu yapı
-
----
-
-## 🛠️ Kullanılan Teknolojiler
-
-- HTML5  
-- CSS3  
-- Bootstrap 5  
-- JavaScript *(form doğrulama veya interaktif içerikler için)*  
-- Nodemailer + Node.js *(formdan gelen mesajları e-posta ile iletmek için — eğer entegre ettiysen)*
-
----
-
-## 📁 Kurulum ve Çalıştırma
-
-Projeyi yerel bilgisayarınızda çalıştırmak için:
-
-```bash
-# 1. Projeyi klonlayın
-git clone https://github.com/kullaniciadi/nakliyatkizil.com.git
-
-# 2. Klasöre girin
-cd nakliyatkizil.com
-
-# 3. Eğer form için Node.js backend varsa:
-npm install
-npm start
-
-# Tarayıcıda açın:
-http://localhost:3000
-
-🤝 Katkıda Bulunma
-Geliştirmelere katkıda bulunmak isterseniz, lütfen fork'layın, geliştirin ve pull request gönderin. Önerilere açığız!
-
-# 🚚 nakliyatkizil.com
-
 **nakliyatkizil.com** is a modern and user-friendly website developed for moving services such as home-to-home transport, city logistics, and box delivery. It includes sections like company introduction, service details, contact form, and Google Maps integration. The design is mobile-responsive and clean.
 
 ## 🌐 About the Site
@@ -103,3 +51,13 @@ http://localhost:3000
 
 If you would like to contribute to the development, feel free to fork the repository, make your changes, and submit a pull request.  
 We welcome suggestions and improvements!
+
+📞 Contact For access to the demo or any questions about this project:
+
+Developer: Seda Nur ZURNACI
+
+Email: sedanur.zurnaci@gmail.com
+
+LinkedIn: linkedin.com/in/seda-nur-zurnacı
+
+GitHub: https://github.com/Sedanurz
